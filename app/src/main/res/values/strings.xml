@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HomeTemp</string>
+    <string name="celsius">CELSIUS</string>
+    <string name="_0">0</string>
+    <string name="_60">60</string>
+</resources>
