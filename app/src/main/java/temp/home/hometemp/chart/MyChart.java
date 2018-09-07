@@ -12,8 +12,9 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindColor;
 import butterknife.BindDrawable;
@@ -26,13 +27,15 @@ public class MyChart {
     @BindDrawable(R.drawable.fade_green) Drawable fade_green;
 
     private LineChart mChart;
-    private List<Entry> yVals = new ArrayList<>();
+    private List<Entry> yVals;
     private LineDataSet set1;
     private int index;
 
-    public MyChart(Activity activity, LineChart chart){
-        mChart = chart;
-        index = 0;
+    @Inject
+    public MyChart(Activity activity, LineChart chart,List<Entry> yVals){
+        this.mChart = chart;
+        this.index = 0;
+        this.yVals =  yVals;//new ArrayList<>();
         ButterKnife.bind(this,activity);
         setUpDatasetInfo();
     }
